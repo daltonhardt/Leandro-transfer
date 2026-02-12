@@ -117,7 +117,8 @@ def leitura_worksheet(worksheet):
             df_new = df_new[1:]  # remove the first row from DataFrame (column names)
             df_base = pd.concat([df_base, df_new], axis=0, ignore_index=True)
         df_base.columns = ["Data", "Desc", "Valor", "Tipo"]
-        df_base['Data'] = pd.to_datetime(df_base['Data'], format='%d/%m/%Y')  # converte Data de object para datetime
+        df_base['Data'] = pd.to_datetime(df_base['Data'], format='%d/%m/%Y', errors="coerce")  # converte Data de object para datetime
+        df_base = df_base.sort_values("Data").reset_index(drop=True)  # ordenação cronológica
         df_base['Mes'] = df_base['Data'].dt.month  # pega somente o mês da Data (em formato numérico)
         df_base['Mes_abreviado'] = df_base['Mes'].apply(lambda x: calendar.month_abbr[x])
         df_base['Valor'] = df_base['Valor'].str.replace('.','')
@@ -276,7 +277,7 @@ if tab == TAB_2:
             st.error("Não existem registros para esse período!")
 
         else:
-            # formatação
+            # formatação (essa função transforma a data em string
             df = format_datetime_columns(df_original)
 
             df_receita = df[df["Tipo"] == "Receita"].reset_index(drop=True)
