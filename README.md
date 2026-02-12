@@ -1,8 +1,9 @@
 # This a simple App to control Income and Expenses using Streamlit and Google Sheets API
 
 ## It has only 2 menu options:
-### First = New record
-### Second = Result
+## New record
+## Result
+
 
 ### New record
 - Allows you to enter Date, Description, Value and Type (Income/Expense).
