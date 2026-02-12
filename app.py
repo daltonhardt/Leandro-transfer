@@ -319,5 +319,5 @@ if tab == TAB_2:
                          hide_index=True, column_order=["Data", "Desc", "Valor"])
 
     else:
-        st.error("Não existem registros para esse período!")
+        st.error("Selecione o mês ou o período!")
 
