@@ -216,6 +216,12 @@ if "visibility" not in state:
     state.disabled = True
 if "month" not in state:
     state.month = mes_corrente
+if "key_valor" not in st.session_state:
+    st.session_state.key_valor = 0.0
+if "key_desc" not in st.session_state:
+    st.session_state.key_desc = ""
+if "key_tipo" not in st.session_state:
+    st.session_state.key_tipo = None
 
 # st.write(st.session_state)
 # TABS
@@ -233,7 +239,7 @@ if tab == TAB_1:
     dia = st.date_input("Data:", format="DD/MM/YYYY", key="key_dia")
     dia_str = dia.strftime('%d/%m/%Y')
     desc = st.text_input("Descrição:", key="key_desc")
-    valor = st.number_input("Valor:", key="key_valor", value=0.0)
+    valor = st.number_input("Valor:", key="key_valor")
     tipo = st.radio("Tipo:", options=["Receita", "Despesa"], index=None, key="key_tipo")
 
     st.button(
