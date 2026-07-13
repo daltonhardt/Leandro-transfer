@@ -9,4 +9,4 @@ google-auth~=2.48.0
 google-api-core~=2.29.0
 google-auth-httplib2~=0.3.0
 
-
+pyarrow<25.0.0
